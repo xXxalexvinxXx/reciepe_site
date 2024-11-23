@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% load static %}  <!-- Добавьте эту строку для загрузки тегов статических файлов -->
+
+{% block content %}
+    <h2>Добавить ингредиент</h2>
+
+    <form method="post" enctype="multipart/form-data" class="ingredient-form">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <button type="submit" class="btn-submit">Добавить</button>
+    </form>
+{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'ingredients/styles.css' %}">
+{% endblock %}

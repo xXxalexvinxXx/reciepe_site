@@ -1,0 +1,14 @@
+<h3>Шаги рецепта</h3>
+<ul>
+    {% for step in recipe.steps.all %}
+        <li>
+            {{ step.description }} - {{ step.time_required }} мин.
+            <form action="{% url 'delete_step' step.id %}" method="POST">
+                {% csrf_token %}
+                <button type="submit">Удалить шаг</button>
+            </form>
+        </li>
+    {% empty %}
+        <p>Нет шагов для этого рецепта.</p>
+    {% endfor %}
+</ul>

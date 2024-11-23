@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load widget_tweaks %}
+
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'main/css/styles.css' %}">
+{% endblock %}
+{% block content %}
+<h2>Войти</h2>
+<form method="POST">
+    {% csrf_token %}
+
+    <div class="form-group">
+        <label for="{{ form.username.id_for_label }}">Имя пользователя</label>
+        <input type="text" name="{{ form.username.name }}" id="{{ form.username.id_for_label }}"
+            value="{{ form.username.value }}" class="form-control" placeholder="Введите ваше имя пользователя">
+    </div>
+
+    <div class="form-group">
+        <label for="{{ form.password.id_for_label }}">Пароль</label>
+        <input type="password" name="{{ form.password.name }}" id="{{ form.password.id_for_label }}"
+            value="{{ form.password.value }}" class="form-control" placeholder="Введите ваш пароль">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Войти</button>
+</form>
+
+<p>Нет аккаунта? <a href="{% url 'register' %}">Зарегистрироваться</a></p>
+{% endblock %}

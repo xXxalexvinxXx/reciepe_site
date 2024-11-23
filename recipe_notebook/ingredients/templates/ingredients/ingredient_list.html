@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% load static %}  <!-- Добавьте эту строку -->
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+
+{% block content %}
+    <h1>Ингредиенты</h1>
+
+    <div class="ingredient-cards">
+        {% for category, ingredients in ingredients_by_category.items %}
+            <div class="category-block">
+                <h2>{{ category.name }}</h2>
+                <div class="ingredient-cards">
+                    {% for ingredient in ingredients %}
+                        <div class="ingredient-card">
+                            <h3>{{ ingredient.name }}</h3>
+                            <div class="ingredient-image">
+                                <a href="{% url 'ingredient_detail' ingredient.pk %}">
+                                    {% if ingredient.image %}
+                                        <img src="{{ ingredient.image.url }}" alt="{{ ingredient.name }}" class="ingredient-img">
+                                    {% else %}
+                                        <img src="{% static 'images/placeholder.png' %}" alt="Placeholder" class="ingredient-img">
+                                    {% endif %}
+                                </a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

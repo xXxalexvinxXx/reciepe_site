@@ -1,0 +1,48 @@
+{% load static %}
+
+<div class="sidebar">
+    <ul class="nav flex-column">
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'ingredient_list' %}">Список ингредиентов</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'create_ingredient' %}">Добавить ингредиент</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'add_recipe' %}">Добавить рецепт</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'profile' %}">Профиль</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'logout' %}">Выйти</a>
+        </li>
+    </ul>
+</div>
+
+<style>
+    .sidebar {
+        width: 250px;
+        background-color: #f8f9fa;
+        padding-top: 20px;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+
+    .sidebar .nav-item {
+        margin-bottom: 10px;
+    }
+
+    .sidebar .nav-link {
+        font-size: 1.2rem;
+        padding: 10px 20px;
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    .sidebar .nav-link:hover {
+        background-color: #e9ecef;
+    }
+</style>

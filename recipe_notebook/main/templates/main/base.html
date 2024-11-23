@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Главная{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'main/css/styles.css' %}">
+{% endblock %}
+
+{% block content %}
+<h2 class="mb-4 text-center">Добро пожаловать в Блокнот рецептов</h2>
+<div class="card-deck">
+    {% for recipe in recipes %}
+    <div class="card shadow-sm">
+        <img src="{{ recipe.image }}" class="card-img-top rounded" alt="{{ recipe.title }}">
+        <div class="card-body">
+            <h5 class="card-title">{{ recipe.title }}</h5>
+            <p class="card-category text-primary">{{ recipe.category }}</p>
+            <p class="card-difficulty text-success">{{ recipe.difficulty }}</p>
+            <p class="card-description">{{ recipe.description }}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

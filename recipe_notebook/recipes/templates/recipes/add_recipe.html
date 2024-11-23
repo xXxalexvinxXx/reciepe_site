@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}Добавить рецепт{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 class="mb-4 text-center">Добавить рецепт</h2>
+
+    <!-- Форма для добавления рецепта -->
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <!-- Каждое поле формы с кастомным классом Bootstrap -->
+        <div class="form-group mb-3">
+            <label for="{{ recipe_form.name.id_for_label }}">Название рецепта</label>
+            {{ recipe_form.name|add_class:"form-control" }} <!-- Поле для названия рецепта -->
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="{{ recipe_form.category.id_for_label }}">Категория</label>
+            {{ recipe_form.category|add_class:"form-control" }} <!-- Поле для категории -->
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="{{ recipe_form.description.id_for_label }}">Описание</label>
+            {{ recipe_form.description|add_class:"form-control" }} <!-- Поле для описания рецепта -->
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="{{ recipe_form.image.id_for_label }}">Изображение</label>
+            {{ recipe_form.image|add_class:"form-control" }} <!-- Поле для изображения -->
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="{{ recipe_form.difficulty.id_for_label }}">Сложность</label>
+            {{ recipe_form.difficulty|add_class:"form-control" }} <!-- Поле для сложности -->
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="{{ recipe_form.cook_time.id_for_label }}">Время приготовления (минуты)</label>
+            {{ recipe_form.cook_time|add_class:"form-control" }} <!-- Поле для времени приготовления -->
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="{{ recipe_form.steps.id_for_label }}">Шаги приготовления</label>
+            {{ recipe_form.steps|add_class:"form-control" }} <!-- Поле для шагов приготовления -->
+        </div>
+
+        <!-- Кнопка для добавления ингредиентов -->
+        <button type="submit" class="btn btn-primary">Добавить рецепт</button>
+    </form>
+</div>
+{% endblock %}

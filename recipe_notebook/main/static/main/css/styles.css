@@ -1,0 +1,114 @@
+/* Основные стили для карточек */
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Центрирование по горизонтали */
+    justify-content: center; /* Центрирование по вертикали */
+    text-align: center; /* Центрирование текста */
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd; /* Лёгкая рамка */
+    border-radius: 8px; /* Скруглённые углы */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Тень для объёмности */
+    transition: transform 0.2s, box-shadow 0.2s; /* Анимация при наведении */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Поднятие карточки */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Увеличение тени */
+}
+
+.card img {
+    width: 100%;
+    max-width: 200px; /* Максимальная ширина изображения */
+    height: auto;
+    object-fit: cover; /* Обеспечение сохранения пропорций */
+    margin-bottom: 10px;
+    border-radius: 4px; /* Скругление углов изображения */
+}
+
+/* Стили для блока с карточками */
+.card-deck {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 колонки для десктопа */
+    grid-gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .card-deck {
+        grid-template-columns: 1fr; /* Одна колонка для мобильных устройств */
+    }
+}
+
+/* Стили для текста в карточке */
+.card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.card-category {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #007bff; /* Синий цвет */
+    margin-bottom: 8px;
+}
+
+.card-difficulty {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #28a745; /* Зелёный цвет */
+    margin-bottom: 8px;
+}
+
+.card-description {
+    font-style: italic;
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+/* Адаптивное выравнивание карточек */
+@media (max-width: 768px) {
+    .card-deck {
+        grid-template-columns: 1fr; /* Одна колонка на мобильных устройствах */
+    }
+}
+
+/* Дополнительное выравнивание последней карточки по центру */
+.card-deck .card:nth-child(5) {
+    justify-self: center; /* Выравнивание последней карточки по центру */
+    grid-column: span 2; /* Карточка занимает 2 колонки */
+}
+
+/* Общие стили для заголовков */
+h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+/* Центрирование текста */
+.text-center {
+    text-align: center;
+}
+/* Центрируем текст на главной странице */
+.welcome-message {
+    display: flex;
+    justify-content: center; /* Центрирование по горизонтали */
+    align-items: center; /* Центрирование по вертикали */
+    height: 100vh; /* Высота экрана */
+    text-align: center;
+    font-size: 2rem; /* Размер шрифта */
+    font-weight: bold;
+    color: #333;
+}
+
+/* Для тела главной страницы */
+.main-content {
+    display: flex;
+    justify-content: center; /* Центрируем контент по горизонтали */
+    padding: 20px;
+}

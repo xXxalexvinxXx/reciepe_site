@@ -1,0 +1,38 @@
+<!-- templates/recipes/recipe_detail.html -->
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="recipe-detail">
+    <h1>{{ recipe.name }}</h1>
+    <img src="{{ recipe.image.url }}" alt="{{ recipe.name }}" class="img-fluid">
+
+    <!-- Информация об ингредиентах -->
+    <h2>Ингредиенты:</h2>
+    <ul>
+        {% for item in ingredients_with_amount %}
+        <li>{{ item.ingredient.name }} — {{ item.amount }} г</li>
+        {% endfor %}
+    </ul>
+
+    <!-- Шаги приготовления -->
+    <h2>Шаги приготовления:</h2>
+    <ol>
+        {% for step in steps %}
+        <li>{{ step }}</li>
+        {% endfor %}
+    </ol>
+
+    <!-- БЖУ и калории -->
+    <h2>Пищевая ценность:</h2>
+    <p>Белки: {{ bju_and_calories.protein }} г</p>
+    <p>Жиры: {{ bju_and_calories.fat }} г</p>
+    <p>Углеводы: {{ bju_and_calories.carbs }} г</p>
+    <p>Калории: {{ bju_and_calories.calories }} ккал</p>
+
+    <!-- Кнопки управления -->
+    {% if is_author %}
+    <a href="{% url 'edit_recipe' recipe.id %}" class="btn btn-primary">Редактировать</a>
+    {% endif %}
+</div>
+{% endblock %}

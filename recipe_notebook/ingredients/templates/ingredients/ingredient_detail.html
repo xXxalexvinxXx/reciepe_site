@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <h1>{{ ingredient.name }}</h1>
+    <div class="ingredient-detail">
+        <div class="ingredient-image">
+            {% if ingredient.image %}
+                <img src="{{ ingredient.image.url }}" alt="{{ ingredient.name }}">
+            {% else %}
+                <img src="{% static 'images/placeholder.png' %}" alt="Placeholder">
+            {% endif %}
+        </div>
+        <div class="ingredient-info">
+            <p><strong>Категория:</strong> {{ ingredient.category.name }}</p>
+            <p><strong>Название:</strong> {{ ingredient.name }}</p>
+        </div>
+    </div>
+{% endblock %}

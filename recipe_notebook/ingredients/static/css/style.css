@@ -1,0 +1,61 @@
+/* ingredients.css */
+
+/* Основной контейнер для карточек ингредиентов */
+.ingredient-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(30%, 1fr)); /* Автоматически заполняем строки, каждая карточка имеет
+     минимум 10% ширины */
+    gap: 20px;  /* Расстояние между карточками */
+    justify-items: center;  /* Центрируем карточки по горизонтали */
+    padding: 20px;
+}
+
+/* Стили для каждой карточки */
+.ingredient-card {
+    width: 100%;  /* Каждая карточка занимает всю доступную ширину ячейки */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+/* Стили для изображений */
+.ingredient-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;  /* Растягиваем изображение по размеру карточки */
+    border-bottom: 1px solid #ddd;
+}
+
+/* Заголовок карточки */
+.ingredient-card h3 {
+    padding: 10px;
+    font-size: 1.1em;
+    text-align: center;
+}
+
+/* Адаптивность для меньших экранов */
+@media (max-width: 1200px) {
+    .ingredient-cards {
+        grid-template-columns: repeat(auto-fill, minmax(10%, 1fr)); /* 10% на экранах меньше 1200px */
+    }
+}
+
+@media (max-width: 900px) {
+    .ingredient-cards {
+        grid-template-columns: repeat(auto-fill, minmax(10%, 1fr)); /* 10% на экранах меньше 900px */
+    }
+}
+
+@media (max-width: 600px) {
+    .ingredient-cards {
+        grid-template-columns: repeat(auto-fill, minmax(10%, 1fr)); /* 10% на экранах меньше 600px */
+    }
+}
+
+@media (max-width: 400px) {
+    .ingredient-cards {
+        grid-template-columns: repeat(auto-fill, minmax(10%, 1fr)); /* 10% на самых маленьких экранах */
+    }
+}

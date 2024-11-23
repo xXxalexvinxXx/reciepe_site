@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %} <!-- Загрузка тега static -->
+{% load custom_filters %}
+{% block title %}Главная{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'main/css/styles.css' %}">
+{% endblock %}
+
+{% block content %}
+<h2 class="mb-4 text-center">Добро пожаловать в Блокнот рецептов</h2>
+
+<div class="card-deck">
+    {% for recipe in recipes %}
+    <div class="card shadow-sm">
+        <!-- Изображение рецепта -->
+        {% if recipe.image %}
+            <a href="{% url 'recipe_detail' pk=recipe.id %}">
+                <img src="{{ recipe.image.url }}" class="card-img-top rounded" alt="{{ recipe.name }}">
+            </a>
+        {% else %}
+            <a href="{% url 'recipe_detail' pk=recipe.id %}">
+                <img src="{% static 'images/default_recipe.jpg' %}" class="card-img-top rounded" alt="Default image">
+            </a>
+        {% endif %}
+
+        <div class="card-body">
+            <h5 class="card-title">{{ recipe.name }}</h5>
+            <p class="card-difficulty text-success">
+                <strong>Сложность:</strong> {{ "*"|repeat:recipe.difficulty }}
+            </p>
+            <p class="card-description">{{ recipe.description }}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

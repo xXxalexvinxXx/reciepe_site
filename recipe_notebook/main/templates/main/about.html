@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="text-center mb-4">О нас</h1>
+                <p class="lead text-center">
+                    Добро пожаловать на сайт «Блокнот рецептов»! Мы создаем платформу для тех, кто любит готовить,
+                    делиться
+                    рецептами и открывать новые кулинарные горизонты. Здесь вы можете не только хранить свои любимые рецепты, но и делиться ими с другими пользователями.
+                </p>
+                <p class="text-center">
+                    Наши пользователи могут создавать свои рецепты, добавлять ингредиенты, а также сохранять любимые блюда. Все рецепты снабжены пошаговыми инструкциями и фотографиями, чтобы вы могли легко повторить любое блюдо.
+                </p>
+                <h2 class="mt-5">Как это работает</h2>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card mb-4">
+                            <img src="https://via.placeholder.com/150" class="card-img-top" alt="Recipe Creation">
+                            <div class="card-body">
+                                <h5 class="card-title">Создайте рецепт</h5>
+                                <p class="card-text">Добавьте свой рецепт, укажите ингредиенты и пошаговые инструкции.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-4">
+                            <img src="https://via.placeholder.com/150" class="card-img-top" alt="Explore Recipes">
+                            <div class="card-body">
+                                <h5 class="card-title">Исследуйте рецепты</h5>
+                                <p class="card-text">Ищите рецепты других пользователей и сохраняйте их в своем списке избранных.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-4">
+                            <img src="https://via.placeholder.com/150" class="card-img-top" alt="Share with Friends">
+                            <div class="card-body">
+                                <h5 class="card-title">Поделитесь с друзьями</h5>
+                                <p class="card-text">Поделитесь своими любимыми рецептами с друзьями и семьей.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="mt-5">Наша команда</h3>
+                <p>Мы — команда кулинаров, дизайнеров и разработчиков, которые любят создавать инструменты, облегчающие процесс кулинарии. Мы надеемся, что наш сайт станет вашим надежным помощником на кухне.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center mt-5">
+        <p class="text-muted">© 2024 Recipe Notebook. Все права защищены.</p>
+    </div>
+{% endblock %}
